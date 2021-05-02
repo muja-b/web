@@ -443,6 +443,14 @@ section {
   padding-bottom: 20px;
   position: relative;
 }
+.section-title-2 p {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 300;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  position: relative;
+}
 .section-title p2 {
   text-align: center;
   padding-bottom: 30px;
@@ -450,6 +458,13 @@ section {
 }
 
 .section-title h2 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+}
+.section-title-2 h3 {
   font-size: 32px;
   font-weight: 600;
   margin-bottom: 20px;
@@ -509,7 +524,7 @@ section {
 }
 
 /*--------------------------------------------------------------
-# What We Do
+# meet nero
 --------------------------------------------------------------*/
 .what-we-do .icon-box {
   text-align: center;
