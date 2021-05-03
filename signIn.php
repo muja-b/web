@@ -52,14 +52,14 @@
                         		</div>
                             </div>
                             <div class="form-bottom">
-			                    <form role="form" action="authentication.php" method="post" class="login-form">
+			                    <form role="form" action="connection.php" method="post" class="login-form">
 			                    	<div class="form-group">
 			                    		<label class="sr-only" for="username">Username</label>
-			                        	<input type="text" name="username" placeholder="Username..." class="form-username form-control" id="username">
+			                        	<input style="<?php if(isset($_GET['isWrong']))echo "background-color:#ffb3b3" ?>"  type="text" name="username" placeholder="Username..." class="form-username form-control" id="username">
 			                        </div>
 			                        <div class="form-group">
 			                        	<label class="sr-only" for="password">Password</label>
-			                        	<input type="password" name="password" placeholder="Password..." class="form-password form-control" id="password">
+			                        	<input style="<?php if(isset($_GET['isWrong']))echo "background-color:#ffb3b3" ?>" type="password" name="password" placeholder="Password..." class="form-password form-control" id="password">
 			                        </div>
 			                        <button type="submit" class="btn">Sign in!</button>
 			                    </form>
@@ -92,12 +92,7 @@
         <script src="assets/js/jquery-1.11.1.min.js"></script>
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="assets/js/jquery.backstretch.min.js"></script>
-        <script src="assets/js/scripts.js"></script>
-        
-        <!--[if lt IE 10]>
-            <script src="assets/js/placeholder.js"></script>
-        <![endif]-->
+    <script src="assets/js/scripts.js"></script>
 
     </body>
-
 </html>

@@ -1,0 +1,66 @@
+.xl-top-margin {
+    margin-top: 60px;
+}
+.xl-bottom-margin{
+    margin-bottom: 100px;
+}
+.l-bottom-pad {
+    padding-bottom: 40px;
+}
+.text-medium--light {
+    color: #727272;
+    font-size: 14px;
+}
+.no-bottom-margin {
+    margin-bottom: 0;
+    margin-top: 60px;
+}
+.s-bottom-margin {
+    margin-bottom: 16px;
+}
+.img-profile-photo {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 20px;
+    border-radius: 50%;
+    padding-top: 100%;
+    width: 100%;
+}
+.tab-navigation {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 0;
+    overflow: auto;
+    padding-left: 0;
+    box-sizing: border-box;
+}
+ol, ul {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+*::-webkit-scrollbar {
+    width: 8px;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: #BCBCBC;
+    border-radius: 4px;
+}
