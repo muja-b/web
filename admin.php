@@ -262,7 +262,7 @@ if (isset($_POST['removeSampletext'])) {
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Dashboard</title>
+    <title>Admin Page</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -285,12 +285,6 @@ if (isset($_POST['removeSampletext'])) {
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/dashcss.css" rel="stylesheet">
 
-    <!-- =======================================================
-    * Template Name: Lumia - v2.2.1
-    * Template URL: https://bootstrapmade.com/lumia-bootstrap-business-template/
-    * Author: BootstrapMade.com
-    * License: https://bootstrapmade.com/license/
-    ======================================================== -->
 </head>
 
 <body onload="funvis(),hideAddp(),hideRemovep(),hideAddUser(),hideRemoveUser(),hideAddSample(),hideremovesample()">
@@ -352,57 +346,70 @@ if (isset($_POST['removeSampletext'])) {
 
             <ul class="pagination pagination-lg" >
                 <li>
-                    <a  onclick="funvis1()">Available Jobs</a>
+                    <a  onclick="funvis1()">Projects </a>
                 </li>
                 <li>
-                    <a onclick="funvis2()" >Work History</a>
+                    <a onclick="funvis2()" >Users</a>
                 </li>
                 <li>
-                    <a onclick="funvis3()">Skills &amp; Badges</a>
+                    <a onclick="funvis3()">Samples</a>
                 </li>
             </ul>
         </center>
 
-        <div class="container" style="margin-bottom: 100px;  "><div class="tab-empty" id="ahmad1">
+        <div class="container" style="margin-bottom: 100px;  "><div class="tab-empty" id="ahmad1" >
                 <form action="admin.php" method="post">
                     <input type="button" value="add project" id="addProjectButton" onclick="addp()" class="form-control">
-                    <table id="addProjectTable">
+                    <table id="addProjectTable" >
                         <tr>
                             <td><input type="text" name="projectname" class="form-control" placeholder="project name"></td>
+                        </tr>
+                        <tr>
+
                         </tr>
                         <tr>
                             <td><input type="number" name="numOfUsers" class="form-control" placeholder="number of users"></td>
                         </tr>
                         <tr>
+
+                        </tr>
+                        <tr>
                             <td><input type="number" name="sampelsGoal" class="form-control" placeholder="sample goal"></td>
                         </tr>
                         <tr>
-                            <td>project type:</td>
+
+</tr>
+                        <tr>
+
+                            <center>
+                                <td><strong>project type:</strong></td>
+                            </center>
+
                         </tr>
                         <tr>
-                            <td><input type="radio" name="projectType" value="text" class="form-control">Anotate Text</td>
+                            <tr><td><input type="radio" name="projectType" value="text" class="form-control">Anotate Text</td></tr>
 
-
-                            <td><input type="radio" name="projectType" value="voice" class="form-control">Record Voice lines</td>
-
-
-                            <td><input type="radio" name="projectType" value="image" class="form-control">Check images</td>
+                            <tr><td><input type="radio" name="projectType" value="voice" class="form-control">Record Voice lines</td>
+                                </tr>
+                            <tr><td><input type="radio" name="projectType" value="image" class="form-control">  Check images </td></tr>
                         </tr>
                         <tr>
                             <td><input type="submit" value="add project" class="form-control"></td>
                         </tr>
+                        <tr><td></td></tr>
                         <tr>
                             <td><input type="button" value="hide" onclick="hideAddp()" class="form-control"></td>
                         </tr>
+
                     </table>
+                    <br><br>
                 </form>
 
                 <form action="admin.php" method="post">
                     <input type="button" value="remove project" id="removeProjectButton" onclick="removep()" class="form-control">
                     <table id="removeTable">
                         <tr>
-                            <td>project name:</td>
-                            <td><input type="text" name="projectnameRemove" class="form-control"></td>
+                            <td><input type="text" name="projectnameRemove" class="form-control" placeholder="Project Name..."></td>
                         </tr>
                         <tr>
                             <td><input type="submit" value="Remove Project" class="form-control"></td>
@@ -411,10 +418,9 @@ if (isset($_POST['removeSampletext'])) {
                             <td><input type="button" value="hide" onclick="hideRemovep()" class="form-control"></td>
                         </tr>
                     </table>
+                    <br><br>
                 </form>
-                <h2 class="title-medium m-bottom-margin">No jobs available.</h2>
-                <p class="text-big">Awesome! You have no more jobs to do!<br>We will email you as soon as new work is available.<br>Meanwhile, why not grab yourself a cup of coffee?
-                </p>
+
             </div>
             <div class="container" style="margin-bottom: 100px; "><div class="tab-empty" id="ahmad2">
 
@@ -422,12 +428,10 @@ if (isset($_POST['removeSampletext'])) {
                         <input type="button" value="add user" id="useraddbutton" onclick="addUser()" class="form-control">
                         <table id="addUsertable">
                             <tr>
-                                <td>User ID:</td>
-                                <td><input type="number" name="userid" class="form-control"></td>
+                                <td><input type="number" name="userid" class="form-control" placeholder="User ID..."></td>
                             </tr>
                             <tr>
-                                <td>User password:</td>
-                                <td><input type="password" name="userPassword" class="form-control"></td>
+                                <td><input type="password" name="userPassword" class="form-control" placeholder="User password..."></td>
                             </tr>
                             <tr>
                                 <td><input type="submit" value="add user" class="form-control"></td>
@@ -436,22 +440,23 @@ if (isset($_POST['removeSampletext'])) {
                                 <td><input type="button" value="hide" onclick="hideAddUser()" class="form-control"></td>
                             </tr>
                         </table>
+                        <br><br>
                     </form>
 
                     <form action="admin.php" method="post">
                         <input type="button" value="Remove User " id="userRemoveButton" onclick="removeUser()" class="form-control">
                         <table id="removeUsertable">
                             <tr>
-                                <td>User ID:</td>
-                                <td><input type="number" name="userIdRemove" placeholder="User ID" class="form-control"></td>
+                                <td><input type="number" name="userIdRemove" placeholder="User ID..." class="form-control"></td>
                             </tr>
                             <tr>
-                                <td><input type="submit" value="remove user" class="form-control"></td>
+                                <td><input type="submit" value="remove user" class="form-control" placeholder="remove user..."></td>
                             </tr>
                             <tr>
                                 <td><input type="button" value="hide" onclick="hideRemoveUser()" class="form-control"></td>
                             </tr>
                         </table>
+                        <br><br>
                     </form>
 
                 </div>
@@ -473,6 +478,7 @@ if (isset($_POST['removeSampletext'])) {
                                     <td><input type="button" value="hide" onclick="hideAddSample()" class="form-control"></td>
                                 </tr>
                             </table>
+                            <br><br>
                         </form>
 
                         <form action="admin.php" method="post">
@@ -489,9 +495,6 @@ if (isset($_POST['removeSampletext'])) {
                                 </tr>
                             </table>
                         </form>
-                        <h2 class="title-medium m-bottom-margin">Language Tests</h2>
-                        <p class="text-big">You can find language tests as a requirement when trying to access a job. When you pass a test, you improve your ranking and potential for being allocated to paying jobs. You need a validated payment method to do language tests. For more info, check out our
-                        </p>
                     </div>
                 </div>
     </section>
