@@ -429,7 +429,6 @@ if (isset($_POST['removeSampletext'])) {
                         <tr>
                             <td><input type="button" value="hide" onclick="hideAddp()" class="form-control"></td>
                         </tr>
-
                     </table>
                     <br><br>
                 </form>
@@ -524,15 +523,17 @@ if (isset($_POST['removeSampletext'])) {
                                 </tr>
                             </table>
                         </form>
+                    </div>
+                    <div class="tab-empty" id="ahmad4">
                         <form action="admin.php" method="post">
-                            <input type="text" name="projectName">
-                            <br>
-                            <input type="submit" name="chartshow" value="show chart">
+                            <input type="text" name="projectName" placeholder="Project Name" class="form-control" >
+                            <br><br>
+                            <input type="submit" name="chartshow" value="show chart" class="form-control" >
                         </form>
                         <div class="container">
                             <canvas id="myChart"></canvas>
                         </div>
-                    </div>
+                </div>
                 </div>
     </section>
 
@@ -565,65 +566,79 @@ if (isset($_POST['removeSampletext'])) {
         var x = document.getElementById("ahmad1");
         var y = document.getElementById("ahmad2");
         var z = document.getElementById("ahmad3");
+        var w = document.getElementById("ahmad4");
         if (x.style.display === "none") {
             x.style.display = "block";
             y.style.display = "none";
             z.style.display = "none";
+            w.style.display = "none";
         } else {
             x.style.display = "none";
             y.style.display = "none";
             z.style.display = "none";
+            w.style.display = "none";
         }
     }
     function funvis2() {
         var x = document.getElementById("ahmad1");
         var y = document.getElementById("ahmad2");
         var z = document.getElementById("ahmad3");
+        var w = document.getElementById("ahmad4");
         if (y.style.display === "none") {
             y.style.display = "block";
             x.style.display = "none";
             z.style.display = "none";
+            w.style.display = "none";
         } else {
             x.style.display = "none";
             y.style.display = "none";
             z.style.display = "none";
+            w.style.display = "none";
         }
     }
     function funvis3() {
         var x = document.getElementById("ahmad1");
         var y = document.getElementById("ahmad2");
         var z = document.getElementById("ahmad3");
+        var w = document.getElementById("ahmad4");
         if (z.style.display === "none") {
             z.style.display = "block";
             x.style.display = "none";
             y.style.display = "none";
+            w.style.display = "none";
         } else {
             x.style.display = "none";
             y.style.display = "none";
             z.style.display = "none";
+            w.style.display = "none";
         }
     }
     function funvis4() {
         var x = document.getElementById("ahmad1");
         var y = document.getElementById("ahmad2");
         var z = document.getElementById("ahmad3");
-        if (z.style.display === "none") {
-            z.style.display = "block";
+        var w = document.getElementById("ahmad4");
+        if (w.style.display === "none") {
+            w.style.display = "block";
             x.style.display = "none";
             y.style.display = "none";
+            z.style.display = "none";
         } else {
             x.style.display = "none";
             y.style.display = "none";
             z.style.display = "none";
+            w.style.display = "none";
         }
     }
     function funvis() {
         var x = document.getElementById("ahmad1");
         var y = document.getElementById("ahmad2");
         var z = document.getElementById("ahmad3");
+        var w = document.getElementById("ahmad4");
         x.style.display = "none";
         y.style.display = "none";
         z.style.display = "none";
+        w.style.display = "none";
     }
     function addp() {
         var x = document.getElementById('addProjectTable');
