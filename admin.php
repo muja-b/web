@@ -1,5 +1,27 @@
 <?php
 session_start();
+if(isset($_POST['chartshow'])){
+    if(isset($_POST['projectName'])){
+        if(!empty($_POST['projectName'])) {
+            $projectname=$_POST['projectName'];
+           $db = new mysqli('localhost', 'root', '', 'webproject');
+            $qString = "SELECT * FROM `projects` WHERE `name` LIKE '$projectname'";
+            $result = $db->query($qString);
+            $row = $result->fetch_assoc();
+            $samplegoal=$row['sampelsGoal'];
+            $qString2="SELECT COUNT(*) FROM samplesfinished WHERE project ='project1'";
+            $result = $db->query($qString2);
+            $row = $result->fetch_row();
+            $samplecount=$row['0'];
+            ?>
+
+
+            <?php
+
+        }
+
+}
+}
 if (isset($_POST['projectname']) && isset($_POST['numOfUsers']) && isset($_POST['sampelsGoal']) && isset($_POST['projectType'])) {
     if (!empty($_POST['projectname']) && !empty($_POST['numOfUsers']) && !empty($_POST['sampelsGoal']) && !empty($_POST['projectType'])) {
         $pName = $_POST['projectname'];
@@ -261,6 +283,10 @@ if (isset($_POST['removeSampletext'])) {
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <title>Admin Page</title>
     <meta content="" name="description">
@@ -353,6 +379,9 @@ if (isset($_POST['removeSampletext'])) {
                 </li>
                 <li>
                     <a onclick="funvis3()">Samples</a>
+                </li>
+                <li>
+                    <a onclick="funvis4()">Charts</a>
                 </li>
             </ul>
         </center>
@@ -495,6 +524,14 @@ if (isset($_POST['removeSampletext'])) {
                                 </tr>
                             </table>
                         </form>
+                        <form action="admin.php" method="post">
+                            <input type="text" name="projectName">
+                            <br>
+                            <input type="submit" name="chartshow" value="show chart">
+                        </form>
+                        <div class="container">
+                            <canvas id="myChart"></canvas>
+                        </div>
                     </div>
                 </div>
     </section>
@@ -523,6 +560,7 @@ if (isset($_POST['removeSampletext'])) {
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
 <script>
+
     function funvis1() {
         var x = document.getElementById("ahmad1");
         var y = document.getElementById("ahmad2");
@@ -552,6 +590,20 @@ if (isset($_POST['removeSampletext'])) {
         }
     }
     function funvis3() {
+        var x = document.getElementById("ahmad1");
+        var y = document.getElementById("ahmad2");
+        var z = document.getElementById("ahmad3");
+        if (z.style.display === "none") {
+            z.style.display = "block";
+            x.style.display = "none";
+            y.style.display = "none";
+        } else {
+            x.style.display = "none";
+            y.style.display = "none";
+            z.style.display = "none";
+        }
+    }
+    function funvis4() {
         var x = document.getElementById("ahmad1");
         var y = document.getElementById("ahmad2");
         var z = document.getElementById("ahmad3");
@@ -656,6 +708,67 @@ if (isset($_POST['removeSampletext'])) {
         var y = document.getElementById('sampleRemoveButton');
         y.style.display = 'block'
     }
+</script>
+<script>
+    let myChart = document.getElementById('myChart').getContext('2d');
+
+    // Global Options
+    Chart.defaults.global.defaultFontFamily = 'Lato';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = '#777';
+
+    let massPopChart = new Chart(myChart, {
+        type:'bar',
+        data:{
+            labels:['samples done', 'samples goal'],
+            datasets:[{
+                label:'<?php echo $projectname; ?>',
+
+                data:[
+                    <?php echo $samplecount; ?>,
+                    <?php echo $samplegoal; ?>,
+                ],
+                backgroundColor:[
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                ],
+                borderWidth:1,
+                borderColor:'#777',
+                hoverBorderWidth:3,
+                hoverBorderColor:'#000'
+            }]
+        },
+        options:{
+            title:{
+                display:true,
+                text:'project goal',
+                fontSize:25
+            },
+            legend:{
+                display:true,
+                position:'right',
+                labels:{
+                    fontColor:'#000'
+                }
+            },
+            layout:{
+                padding:{
+                    left:50,
+                    right:0,
+                    bottom:0,
+                    top:0
+                }
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+
+        }
+    });
 </script>
 </body>
 
