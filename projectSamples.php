@@ -154,8 +154,8 @@ if(isset($_POST['imgsubmited']) && isset($_POST['imgButtonSubmit'])){
                     <tr>
                      <td>
                          <form action='projectSamples.php' method='post'>
-                           <input type='text' name='submitedSample' placeholder='describe the word...'>
-                            <input type='submit' name='submitButton' value='submit'>
+                           <input type='text' name='submitedSample' placeholder='describe the word...' class='form-control' style='width: 200px; height: 35px;'>
+                            <input type='submit' name='submitButton' value='submit' class='form-control' style='width: 200px; height: 35px;'>
                          </form>
                          </td>
                          <td>
@@ -174,8 +174,8 @@ if(isset($_POST['imgsubmited']) && isset($_POST['imgButtonSubmit'])){
                      <td>
                          <form action='projectSamples.php' method='post'>
                             
-                            <input type='text' name='imgsubmited' placeholder='describe the image'>
-                            <input type='submit' name='imgButtonSubmit' value='submit'>
+                            <input type='text' name='imgsubmited' placeholder='describe the image...' class='form-control' style='width: 200px; height: 35px;'>
+                            <input type='submit' name='imgButtonSubmit' value='submit' class='form-control' style='width: 200px; height: 35px;'>
                          </form>
                          </td>
                          <td>
