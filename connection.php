@@ -16,6 +16,7 @@ if ($result = $mysqli -> query($sql)) {
     if ($result->num_rows > 0) {
         while ($row = $row = $result->fetch_assoc()) {
             $_SESSION['username'] = $row['name'];
+            $_SESSION['Userid']=$row['id'];
             if($username =="1111")
             header("location:admin.php");
             else

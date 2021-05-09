@@ -102,10 +102,11 @@ if (isset($_POST['projectnameRemove'])) {
     }
 }
 
-if (isset($_POST['userid']) && isset($_POST['userPassword'])) {
-    if (!empty($_POST['userid']) && !empty($_POST['userPassword'])) {
+if (isset($_POST['userid']) && isset($_POST['userPassword']) && isset($_POST['userName'])) {
+    if (!empty($_POST['userid']) && !empty($_POST['userPassword']) &&!empty($_POST['userName'])) {
         $userID = $_POST['userid'];
         $userPassword = $_POST['userPassword'];
+        $userName=$_POST['userName'];
         try {
             $db = new mysqli('localhost', 'root', '', 'webproject');
             $quaryUser = "SELECT * FROM users";
@@ -118,7 +119,8 @@ if (isset($_POST['userid']) && isset($_POST['userPassword'])) {
                 }
             }
             if ($exsitingFlag == 0) {
-                $quaryAddUser = "INSERT INTO `users` (`id`, `password`) VALUES ('$userID', '$userPassword')";
+                $quaryAddUser="INSERT INTO `users` (`id`, `password`, `name`, `samplesdone`) VALUES ('$userID', '$userPassword', '$userName', '0')";
+//               $quaryAddUser = "INSERT INTO `users` (`id`, `password`) VALUES ('$userID', '$userPassword')";
                 $db->query($quaryAddUser);
                 $db->close();
 //                ?>
@@ -196,7 +198,6 @@ if (isset($_POST['sampletext'])&&isset($_POST['sampleProjectName'])) {
             for ($i = 0; $i < $result->num_rows; $i++) {
                 $row = $result->fetch_assoc();
                 $sampleNumber=$row['number'];
-                echo $sampleNumber;
             }
 
             $exsitingFlag=0;
@@ -407,7 +408,7 @@ if (isset($_POST['removeSampletext'])) {
                         </tr>
                         <tr>
 
-</tr>
+                        </tr>
                         <tr>
 
                             <center>
@@ -416,11 +417,11 @@ if (isset($_POST['removeSampletext'])) {
 
                         </tr>
                         <tr>
-                            <tr><td><input type="radio" name="projectType" value="text" class="form-control">Anotate Text</td></tr>
+                        <tr><td><input type="radio" name="projectType" value="text" class="form-control">Anotate Text</td></tr>
 
-                            <tr><td><input type="radio" name="projectType" value="voice" class="form-control">Record Voice lines</td>
-                                </tr>
-                            <tr><td><input type="radio" name="projectType" value="image" class="form-control">  Check images </td></tr>
+                        <tr><td><input type="radio" name="projectType" value="voice" class="form-control">Record Voice lines</td>
+                        </tr>
+                        <tr><td><input type="radio" name="projectType" value="image" class="form-control">  Check images </td></tr>
                         </tr>
                         <tr>
                             <td><input type="submit" value="add project" class="form-control"></td>
@@ -451,7 +452,6 @@ if (isset($_POST['removeSampletext'])) {
 
             </div>
             <div class="container" style="margin-bottom: 100px; "><div class="tab-empty" id="ahmad2">
-
                     <form action="admin.php" method="post">
                         <input type="button" value="add user" id="useraddbutton" onclick="addUser()" class="form-control">
                         <table id="addUsertable">
@@ -460,6 +460,9 @@ if (isset($_POST['removeSampletext'])) {
                             </tr>
                             <tr>
                                 <td><input type="password" name="userPassword" class="form-control" placeholder="User password..."></td>
+                            </tr>
+                            <tr>
+                                <td><input type="password" name="userName" class="form-control" placeholder="User name..."></td>
                             </tr>
                             <tr>
                                 <td><input type="submit" value="add user" class="form-control"></td>
@@ -786,5 +789,4 @@ if (isset($_POST['removeSampletext'])) {
     });
 </script>
 </body>
-
 </html>

@@ -4,11 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
   <title>Dashboard</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -71,8 +69,6 @@
 
     </div>
 </header><!-- End Header -->
-
-
   <main class="container-fluid navbar-compensation" >
       <section class="container xl-top-margin">
           <div class="row l-bottom-pad">
@@ -107,9 +103,46 @@
             </center>
 
             <div class="container" style="margin-bottom: 100px;  "><div class="tab-empty" id="ahmad1">
+<<<<<<< Updated upstream
                     <h2 class="title-medium m-bottom-margin">No jobs available.</h2>
                     <p class="text-big">Awesome! You have no more jobs to do!<br>We will email you as soon as new work is available.<br>Meanwhile, why not grab yourself a cup of coffee?
                     </p>
+=======
+                    <?php
+                        showProjects();
+                    function showProjects()
+                    {
+                    try {
+                    $db = new mysqli('localhost', 'root', '', 'webproject');
+                    $qString = 'select * from projects ';
+                    $result = $db->query($qString);
+                    ?>
+                    <table class="project" >
+                        <tr class="project4">
+                            <td class="project2" style="font-size: 24px"><center>Project name</center></td><td class="project2" style="font-size: 24px"><center>Project type</center></td><td class="project2" style="font-size: 24px"><center>Participate</center></td>
+                        </tr>
+                        <?php
+                        for ($i = 0; $i < $result->num_rows; $i++) {
+                        $row = $result->fetch_assoc();
+                        ?>
+                        <tr data-href="projectSamples.php" class="project4">
+                            <form action="projectSamples.php" method="post">
+                                <td class="project2"><P name="<?php echo $row['name'] ?>"><center><?php echo $row['name'] ?></center></></td>
+                                <td><center><?php echo $row['Type'] ?> </center>          </td>
+                                <td> <center><button name="projectname" class="form-control" value="<?php echo $row['name'] ?>" style="width: 100px;height: 35px;">view</button></center></td>
+                            </form>
+                        </tr>
+                </div>
+                <?php
+                }
+                ?>
+                </table>
+                <?php
+                } catch (Exception $e) {
+                }
+                }
+                ?>
+>>>>>>> Stashed changes
                 </div>
                 <div class="container" style="margin-bottom: 100px; "><div class="tab-empty" id="ahmad2">
                         <h2 class="title-medium m-bottom-margin">no samples submitted </h2>
@@ -121,8 +154,6 @@
                         </div>
                     </div>
         </section>
-
-
     <!-- ======= Breadcrumbs ======= -->
 
 
@@ -131,7 +162,6 @@
 
 
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
-
   <!-- Vendor JS Files -->
   <script src="assets/vendor/jquery/jquery.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -142,7 +172,6 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/venobox/venobox.min.js"></script>
   <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 <script>
