@@ -25,7 +25,20 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/dashcss.css" rel="stylesheet">
-
+    <style>
+        table.project {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td.project2, th.project3 {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        tr.project4:nth-child(even) {
+            background-color: #aad6f8;
+        }
+    </style>
   <!-- =======================================================
   * Template Name: Lumia - v2.2.1
   * Template URL: https://bootstrapmade.com/lumia-bootstrap-business-template/
@@ -103,11 +116,7 @@
             </center>
 
             <div class="container" style="margin-bottom: 100px;  "><div class="tab-empty" id="ahmad1">
-<<<<<<< Updated upstream
-                    <h2 class="title-medium m-bottom-margin">No jobs available.</h2>
-                    <p class="text-big">Awesome! You have no more jobs to do!<br>We will email you as soon as new work is available.<br>Meanwhile, why not grab yourself a cup of coffee?
                     </p>
-=======
                     <?php
                         showProjects();
                     function showProjects()
@@ -128,8 +137,8 @@
                         <tr data-href="projectSamples.php" class="project4">
                             <form action="projectSamples.php" method="post">
                                 <td class="project2"><P name="<?php echo $row['name'] ?>"><center><?php echo $row['name'] ?></center></></td>
-                                <td><center><?php echo $row['Type'] ?> </center>          </td>
-                                <td> <center><button name="projectname" class="form-control" value="<?php echo $row['name'] ?>" style="width: 100px;height: 35px;">view</button></center></td>
+                                <td class="project2"><center><?php echo $row['Type'] ?> </center>          </td>
+                                <td class="project2"> <center><button name="projectname" class="form-control" value="<?php echo $row['name'] ?>" style="width: 100px;height: 35px;">view</button></center></td>
                             </form>
                         </tr>
                 </div>
@@ -142,7 +151,6 @@
                 }
                 }
                 ?>
->>>>>>> Stashed changes
                 </div>
                 <div class="container" style="margin-bottom: 100px; "><div class="tab-empty" id="ahmad2">
                         <h2 class="title-medium m-bottom-margin">no samples submitted </h2>
@@ -156,11 +164,7 @@
         </section>
     <!-- ======= Breadcrumbs ======= -->
 
-
   </main><!-- End #main -->
-
-
-
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
   <!-- Vendor JS Files -->
   <script src="assets/vendor/jquery/jquery.min.js"></script>
