@@ -1,6 +1,7 @@
 <?php
 $target_dir = "sounds/";
-$newname = "mujahed";
+session_start();
+$newname = $_SESSION["username"].$_SESSION["info"];
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $soundFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -26,7 +27,7 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "sounds/" . $newname)) {
-        echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+        echo header("location:dashboard.php");
     } else {
         echo "Sorry, there was an error uploading your file.";
     }
